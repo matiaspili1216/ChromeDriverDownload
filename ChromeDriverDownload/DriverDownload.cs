@@ -86,8 +86,9 @@ namespace ChromeDriverDownload
         private void Unzip(string destinationDirectoryName, string sourceArchiveFileName)
         {
             string filePath = Path.Combine(destinationDirectoryName, NameFileZip);
-            if (File.Exists(filePath)) { File.Delete(filePath); }
             ZipFile.ExtractToDirectory(sourceArchiveFileName, destinationDirectoryName);
+            if (File.Exists(filePath)) { File.Delete(filePath); }
+
         }
 
     }

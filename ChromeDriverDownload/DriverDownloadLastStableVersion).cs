@@ -6,8 +6,20 @@ namespace ChromeDriverDownload
 {
     public class DriverDownloadLastStableVersion
     {
-        private string EndPonit_Zip(string fullVersionChromedriver) => $"https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/{fullVersionChromedriver}/win32/chromedriver-win32.zip";
-        private string EndPonit_Zip() => $"https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/{GetLastKnownGoodVersion()}/win32/chromedriver-win32.zip";
+        /// <summary>
+        /// Se obtienen el EndPoint para descargar el archivo 'chromedriver_win32.zip', basado en:
+        /// https://googlechromelabs.github.io/chrome-for-testing/#stable
+        /// </summary>
+        /// <param name="fullVersionChromedriver">Versión completa de Google Chrome</param>
+        /// <returns>EndPoint para descargar el archivo</returns>
+        private string EndPonit_Zip(string fullVersionChromedriver) => $"https://storage.googleapis.com/chrome-for-testing-public/{fullVersionChromedriver}/win32/chromedriver-win32.zip";
+
+        /// <summary>
+        /// Se obtienen el EndPoint para descargar el archivo 'chromedriver_win32.zip' de la última versión estable, basado en:
+        /// https://googlechromelabs.github.io/chrome-for-testing/#stable
+        /// </summary>
+        /// <returns>EndPoint para descargar el archivo</returns>
+        private string EndPonit_Zip() => $"https://storage.googleapis.com/chrome-for-testing-public/{GetLastKnownGoodVersion()}/win32/chromedriver-win32.zip";
 
         /// <summary>
         /// Obtener HttpContent de para descargar el archivo 'chromedriver_win32.zip'
